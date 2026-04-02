@@ -15,5 +15,5 @@ ENV PATH="/root/.local/bin:${PATH}"
 WORKDIR /opt
 RUN git clone https://github.com/ggml-org/llama.cpp && \
     cd /opt/llama.cpp && \
-    cmake -B build -DGGML_CUDA=ON && \
+    cmake -B build -DGGML_CUDA=ON -DGGML_NATIVE=OFF -DCMAKE_CUDA_ARCHITECTURES="86" && \
     cmake --build build --config Release -j"$(nproc)"
