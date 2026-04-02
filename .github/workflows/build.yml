@@ -6,6 +6,10 @@ on:
     branches:
       - main
 
+env:
+  BUILDKIT_PROGRESS: plain
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   docker:
     runs-on: ubuntu-latest
@@ -29,4 +33,5 @@ jobs:
         with:
           context: .
           push: true
+          no-cache: true
           tags: ghcr.io/gochi367/qwen35-llama-server:latest
